@@ -26,13 +26,13 @@ spring.data.rest.base-path=/api
 
 ### Dependencies:
 ```
-	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-data-rest")
-	implementation("org.springframework.data:spring-data-rest-hal-explorer")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-	runtimeOnly("org.postgresql:postgresql:42.7.2")
+implementation("org.springframework.boot:spring-boot-starter-actuator")
+implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+implementation("org.springframework.boot:spring-boot-starter-data-rest")
+implementation("org.springframework.data:spring-data-rest-hal-explorer")
+testImplementation("org.springframework.boot:spring-boot-starter-test")
+testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+runtimeOnly("org.postgresql:postgresql:42.7.2")
 ```
 
 ### Build :
