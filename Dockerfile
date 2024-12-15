@@ -51,4 +51,4 @@ EXPOSE 8080
 
 USER root
 # Run PostgreSQL and the Spring Boot application
-CMD ["bash", "-c", "service postgresql start && java -jar /app/SpringBootDataREST2/build/libs/SpringBootDataREST2-0.0.1-SNAPSHOT.jar & sleep 100 && curl -X GET http://localhost:8080/actuator/health && curl -X POST -H \"Content-Type: application/json\" -d '{\"id\":1, \"name\":\"John Doe\",\"branch\":\"101\",\"balance\":100}' http://localhost:8080/api/customers/ && curl -X GET http://localhost:8080/api/customers && curl -X GET http://localhost:8080/api/customers/search/findByBranch?branch=101 & tail -f /dev/null"]
+CMD ["bash", "-c", "service postgresql start && java -jar /app/SpringBootDataREST2/build/libs/SpringBootDataREST2-0.0.1-SNAPSHOT.jar & sleep 15 && curl -X GET http://localhost:8080/actuator/health && curl -X POST -H \"Content-Type: application/json\" -d '{\"id\":1, \"name\":\"John Doe\",\"branch\":\"101\",\"balance\":100}' http://localhost:8080/api/customers/ && curl -X GET http://localhost:8080/api/customers && curl -X GET http://localhost:8080/api/customers/search/findByBranch?branch=101 & tail -f /dev/null"]
