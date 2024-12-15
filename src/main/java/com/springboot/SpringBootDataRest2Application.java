@@ -6,8 +6,13 @@ import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Objects;
 
 @SpringBootApplication
 public class SpringBootDataRest2Application {
@@ -18,16 +23,15 @@ public class SpringBootDataRest2Application {
 }
 
 @Entity
-@Table(name = "customers")
+@Table(name = "customer")
 class Customer {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private String email;
-
-	// Getters and Setters
+	private String branch;
+	private Double balance;
 
 	public Long getId() {
 		return id;
@@ -45,17 +49,39 @@ class Customer {
 		this.name = name;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getBranch() {
+		return branch;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+
+	public Double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o == null || getClass() != o.getClass()) return false;
+		Customer customer = (Customer) o;
+		return Objects.equals(id, customer.id) && Objects.equals(name, customer.name) && Objects.equals(branch, customer.branch) && Objects.equals(balance, customer.balance);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name, branch, balance);
 	}
 }
 
 @RepositoryRestResource
-interface CustomerRepository extends JpaRepository<Customer, Long> {
+interface CustomerRepository extends CrudRepository<Customer, Long> {
+	List<Customer> findByBranch(@Param("branch") String branch);
+	List<Customer> findByName(@Param("name") String name);
 }
 
 @Component

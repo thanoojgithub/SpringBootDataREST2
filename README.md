@@ -52,5 +52,6 @@ http://localhost:8080/actuator/health
 
 http://localhost:8080/api/customers
 http://localhost:8080/api/customers/2
+http://localhost:8080/api/customers/search/findByName?name=aaa
 http://localhost:8080/api/customers/search/findByBranch?branch=101
 ```
