@@ -8,6 +8,7 @@ class SpringBootDataRest2ApplicationTests {
 
 	@Test
 	void contextLoads() {
+		assert true;
 	}
 
 }
