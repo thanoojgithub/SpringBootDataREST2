@@ -33,7 +33,10 @@ EXPOSE 5432
 WORKDIR /app
 
 # Clone the Spring Boot project (replace <repository_url> with the actual Git repository URL)
-RUN git clone https://github.com/thanoojgithub/SpringBootDataREST2.git .
+RUN git clone https://github.com/thanoojgithub/SpringBootDataREST2.git
+
+RUN cd SpringBootDataREST2 && \
+    ls -ltr
 
 # Build the Spring Boot project
 RUN gradle build
