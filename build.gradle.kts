@@ -24,7 +24,8 @@ dependencies {
 	implementation("org.springframework.data:spring-data-rest-hal-explorer")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-	runtimeOnly("org.postgresql:postgresql:42.6.0")
+	runtimeOnly("org.postgresql:postgresql:42.7.2")
+
 }
 
 tasks.withType<Test> {
